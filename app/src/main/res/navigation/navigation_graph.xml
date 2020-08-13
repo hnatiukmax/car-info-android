@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/bookMarksFragment"
-        android:name="com.sectumsempra.carinfo.BookMarksFragment"
+        android:name="com.sectumsempra.carinfo.presentation.pages.bookmarks.BookMarksFragment"
         android:label="BookMarksFragment"
         tools:layout="@layout/fragment_bookmarks" />
 
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.sectumsempra.carinfo.HistoryFragment"
+        android:name="com.sectumsempra.carinfo.presentation.pages.history.HistoryFragment"
         android:label="HistoryFragment"
         tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.sectumsempra.carinfo.SearchFragment"
+        android:name="com.sectumsempra.carinfo.presentation.pages.search.SearchFragment"
         android:label="SearchFragment"
         tools:layout="@layout/fragment_search" />
 

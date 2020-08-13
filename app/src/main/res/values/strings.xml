@@ -8,4 +8,10 @@
     <string name="bottom_navigation_explore">Explore</string>
     <string name="bottom_navigation_settings">Settings</string>
 
+    <!-- Search Card  -->
+    <string name="search_card_scanning_title">Using camera</string>
+    <string name="search_card_scanning_description">Point the camera at the car number</string>
+    <string name="search_card_typing_title">Manually</string>
+    <string name="search_card_typing_description">Type the auto number manually</string>
+
 </resources>

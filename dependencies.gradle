@@ -17,6 +17,12 @@ ext {
     /* UI */
     coreKtx = 'androidx.core:core-ktx'
     fragmentKtx = 'androidx.fragment:fragment-ktx'
+    navigationKtx = 'androidx.navigation:navigation-ui-ktx'
+    navigationFragmentKtx = 'androidx.navigation:navigation-fragment-ktx'
+
+    ankoCore = 'org.jetbrains.anko:anko'
+    ankoDesign = 'org.jetbrains.anko:anko-design'
+    ankoCardView = 'org.jetbrains.anko:anko-cardview-v7'
 
     appCompat = 'androidx.appcompat:appcompat'
     constraintLayout = 'androidx.constraintlayout:constraintlayout'
@@ -53,6 +59,9 @@ ext {
     /* UI */
     coreKtxVersion = '1.3.1'
     fragmentKtxVersion = '1.2.5'
+    navigationVersion = '2.3.0'
+
+    ankoVersion = '0.10.8'
 
     appCompatVersion = '1.2.0'
     constraintLayoutVersion = '2.0.0-beta4'
@@ -82,6 +91,12 @@ ext {
 
             coreKtx                  : "${coreKtx}:${coreKtxVersion}",
             fragmentKtx              : "${fragmentKtx}:${fragmentKtxVersion}",
+            navigationKtx            : "${navigationKtx}:${navigationVersion}",
+            navigationFragmentKtx    : "${navigationFragmentKtx}:${navigationVersion}",
+
+            ankoCore                 : "${ankoCore}:${ankoVersion}",
+            ankoDesign               : "${ankoDesign}:${ankoVersion}",
+            ankoCardView             : "${ankoCardView}:${ankoVersion}",
 
             appCompat                : "${appCompat}:${appCompatVersion}",
             materialDesign           : "${materialDesign}:${materialDesignVersion}",

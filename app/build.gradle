@@ -64,8 +64,10 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding {
+            enabled = true
+        }
     }
 }
 
@@ -82,6 +84,12 @@ dependencies {
     /* UI */
     implementation appDependencies.coreKtx
     implementation appDependencies.fragmentKtx
+    implementation appDependencies.navigationKtx
+    implementation appDependencies.navigationFragmentKtx
+
+    implementation appDependencies.ankoCore
+    implementation appDependencies.ankoDesign
+    implementation appDependencies.ankoCardView
 
     implementation appDependencies.appCompat
     implementation appDependencies.constraintLayout
@@ -106,8 +114,4 @@ dependencies {
     implementation appDependencies.retrofitMoshiConverter
     kapt appDependencies.moshiKotlinCodegen
     implementation appDependencies.moshiAdapters
-
-    // Navigation Components
-    implementation "androidx.navigation:navigation-fragment-ktx:2.3.0"
-    implementation "androidx.navigation:navigation-ui-ktx:2.3.0"
 }

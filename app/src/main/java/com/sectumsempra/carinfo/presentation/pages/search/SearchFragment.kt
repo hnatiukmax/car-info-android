@@ -1,12 +1,12 @@
-package com.sectumsempra.carinfo
+package com.sectumsempra.carinfo.presentation.pages.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.sectumsempra.carinfo.databinding.FragmentSearchBinding
+import org.jetbrains.anko.AnkoContext
 
 class SearchFragment : Fragment() {
 
@@ -17,8 +17,6 @@ class SearchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false)
-
-        return binding.root
+        return SearchFragmentUI().createView(AnkoContext.create(requireContext(), this))
     }
 }
