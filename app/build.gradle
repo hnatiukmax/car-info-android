@@ -81,6 +81,11 @@ dependencies {
     implementation appDependencies.kotlinReflect
     implementation appDependencies.kotlinxCoroutinesCore
 
+    /* DI */
+    implementation appDependencies.koinCore
+    implementation appDependencies.koinAndroid
+    implementation appDependencies.koinViewModel
+
     /* UI */
     implementation appDependencies.coreKtx
     implementation appDependencies.fragmentKtx
