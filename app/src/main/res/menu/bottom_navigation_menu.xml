@@ -7,34 +7,34 @@
         android:enabled="true"
         android:icon="@drawable/ic_bookmark"
         android:title="@string/bottom_navigation_bookmark"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/historyFragment"
         android:enabled="true"
         android:icon="@drawable/ic_history"
         android:title="@string/bottom_navigation_history"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/searchFragment"
         android:enabled="true"
         android:icon="@drawable/ic_search"
         android:title="@string/bottom_navigation_search"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/exploreFragment"
         android:enabled="true"
         android:icon="@drawable/ic_explore"
         android:title="@string/bottom_navigation_explore"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/settingsFragment"
         android:enabled="true"
         android:icon="@drawable/ic_settings"
         android:title="@string/bottom_navigation_settings"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
 </menu>

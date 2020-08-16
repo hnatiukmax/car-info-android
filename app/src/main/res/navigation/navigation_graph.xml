@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.sectumsempra.carinfo.presentation.pages.history.HistoryFragment"
+        android:name="com.sectumsempra.carinfo.presentation.pages.settings.SettingsFragment"
         android:label="HistoryFragment"
         tools:layout="@layout/fragment_history" />
 
@@ -22,5 +22,15 @@
         android:name="com.sectumsempra.carinfo.presentation.pages.search.SearchFragment"
         android:label="SearchFragment"
         tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.sectumsempra.carinfo.presentation.pages.explore.ExploreFragment"
+        android:label="Explore Fragment" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.sectumsempra.carinfo.presentation.pages.settings.SettingsFragment"
+        android:label="ExploreFragment" />
 
 </navigation>

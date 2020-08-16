@@ -4,7 +4,9 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
 
-    <!-- Widget   -->
+    <!-- Bottom Navigation   -->
     <color name="bottom_navigation_color">#FDFEFE</color>
+    <color name="bottom_navigation_item_unselected">#C2C2C2</color>
+    <color name="bottom_navigation_item_selected">#0676ED</color>
 
 </resources>
