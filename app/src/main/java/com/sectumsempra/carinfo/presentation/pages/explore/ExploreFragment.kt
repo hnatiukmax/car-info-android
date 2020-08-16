@@ -1,4 +1,4 @@
-package com.sectumsempra.carinfo.presentation.pages.history
+package com.sectumsempra.carinfo.presentation.pages.explore
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,13 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sectumsempra.carinfo.databinding.FragmentHistoryBinding
-import com.sectumsempra.carinfo.presentation.pages.settings.SettingsFragmentUI
 import org.jetbrains.anko.AnkoContext
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HistoryFragment : Fragment() {
+class ExploreFragment : Fragment() {
 
-    private val viewModel: HistoryFragmentViewModel by viewModel()
     private lateinit var binding: FragmentHistoryBinding
 
     override fun onCreateView(
@@ -20,6 +17,6 @@ class HistoryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return SettingsFragmentUI().createView(AnkoContext.create(requireContext(), this))
+        return ExploreFragmentUI().createView(AnkoContext.create(requireContext(), this))
     }
 }
