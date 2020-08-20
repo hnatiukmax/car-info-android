@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.sectumsempra.carinfo.presentation.pages.settings.SettingsFragment"
+        android:name="com.sectumsempra.carinfo.presentation.pages.history.HistoryFragment"
         android:label="HistoryFragment"
         tools:layout="@layout/fragment_history" />
 
