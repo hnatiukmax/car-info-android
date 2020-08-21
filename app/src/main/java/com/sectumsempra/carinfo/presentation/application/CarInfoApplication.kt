@@ -1,7 +1,8 @@
 package com.sectumsempra.carinfo.presentation.application
 
 import android.app.Application
-import com.sectumsempra.carinfo.presentation.di.modules.viewModelModule
+import com.sectumsempra.carinfo.presentation.di.provideModules
+import org.koin.android.logger.AndroidLogger
 import org.koin.core.context.startKoin
 
 internal class CarInfoApplication : Application() {
@@ -13,7 +14,8 @@ internal class CarInfoApplication : Application() {
 
     private fun initServiceLocator() {
         startKoin {
-            modules(viewModelModule)
+            logger(AndroidLogger())
+            modules(*provideModules())
         }
     }
 }
