@@ -51,6 +51,7 @@ android {
             versionName android.defaultConfig.versionName
             buildConfigField "String", "DATABASE_PREFIX", '""'
             buildConfigField "String", "API_URL", '""'
+            buildConfigField "String", "API_VERSION", '"v1"'
             buildConfigField "String", "API_PREFFIX", '"/"'
         }
     }
