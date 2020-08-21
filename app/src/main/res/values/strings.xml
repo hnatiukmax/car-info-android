@@ -14,4 +14,15 @@
     <string name="search_card_typing_title">Manually</string>
     <string name="search_card_typing_description">Type the auto number manually</string>
 
+    <!-- Exceptions   -->
+    <string name="exception_something_bag_happened">Something bad happen</string>
+    <string name="exception_internet_connection">Oops, you have problem with network connection</string>
+    <string name="exception_unknown_api_response">Some problem with server side response</string>
+    <string name="exception_client_side_error">Some problems on client side</string>
+    <string name="exception_server_side_error">Some problems on server side</string>
+    <string name="exception_facebook_auth_failed">Facebook authentication failed</string>
+    <string name="exception_google_auth_failed">Google authentication failed</string>
+    <string name="exception_no_access">No access</string>
+    <string name="exception_token_is_required">Token is required</string>
+
 </resources>
