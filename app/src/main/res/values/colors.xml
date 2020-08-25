@@ -5,11 +5,20 @@
     <color name="colorAccent">#03DAC5</color>
 
     <!-- Main -->
+    <color name="main_color">#2970CD</color>
     <color name="main_background">#ECF1FA</color>
+
+    <!-- Text -->
+    <color name="primary_text_color">#3160B6</color>
+    <color name="secondary_text_color">#1C1C1C</color>
+    <color name="thirdly_text_color">#661C1C1C</color>
 
     <!-- Bottom Navigation -->
     <color name="bottom_navigation_color">#FDFEFE</color>
     <color name="bottom_navigation_item_unselected">#C2C2C2</color>
     <color name="bottom_navigation_item_selected">#0676ED</color>
+
+    <!-- Widget -->
+    <color name="facebook_color">#3A559F</color>
 
 </resources>

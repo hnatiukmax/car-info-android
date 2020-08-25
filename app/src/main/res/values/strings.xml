@@ -1,20 +1,20 @@
 <resources>
     <string name="app_name">Car Info</string>
 
-    <!-- Bottom Navigation   -->
+    <!-- Bottom Navigation -->
     <string name="bottom_navigation_bookmark">Bookmark</string>
     <string name="bottom_navigation_history">History</string>
     <string name="bottom_navigation_search">Search</string>
     <string name="bottom_navigation_explore">Explore</string>
     <string name="bottom_navigation_settings">Settings</string>
 
-    <!-- Search Card  -->
+    <!-- Search Card -->
     <string name="search_card_scanning_title">Using camera</string>
     <string name="search_card_scanning_description">Point the camera at the car number</string>
     <string name="search_card_typing_title">Manually</string>
     <string name="search_card_typing_description">Type the auto number manually</string>
 
-    <!-- Exceptions   -->
+    <!-- Exceptions -->
     <string name="exception_something_bag_happened">Something bad happen</string>
     <string name="exception_internet_connection">Oops, you have problem with network connection</string>
     <string name="exception_unknown_api_response">Some problem with server side response</string>
@@ -24,5 +24,12 @@
     <string name="exception_google_auth_failed">Google authentication failed</string>
     <string name="exception_no_access">No access</string>
     <string name="exception_token_is_required">Token is required</string>
+
+    <!-- Welcome -->
+    <string name="welcome_title"><b>Car</b> Info</string>
+    <string name="welcome_sign_in">Sign In</string>
+    <string name="welcome_sign_up">Sign Up</string>
+    <string name="welcome_skip_for_now"><u>Skip for now</u></string>
+    <string name="welcome_find_information">Find information about car at the moment</string>
 
 </resources>
