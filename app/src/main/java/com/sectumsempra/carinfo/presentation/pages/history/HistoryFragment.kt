@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sectumsempra.carinfo.databinding.FragmentHistoryBinding
-import org.jetbrains.anko.AnkoContext
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HistoryFragment : Fragment() {
@@ -19,6 +18,6 @@ class HistoryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return HistoryFragmentUi().createView(AnkoContext.create(requireContext(), this))
+        return View(context)
     }
 }
