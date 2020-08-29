@@ -24,6 +24,10 @@
         </activity>
 
         <activity
+            android:name=".presentation.pages.authentication.AuthActivity"
+            android:screenOrientation="${screenOrientation}" />
+
+        <activity
             android:name=".presentation.pages.main.MainActivity"
             android:screenOrientation="${screenOrientation}" />
 
