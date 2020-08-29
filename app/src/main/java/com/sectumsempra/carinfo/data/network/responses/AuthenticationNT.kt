@@ -1,5 +1,6 @@
 package com.sectumsempra.carinfo.data.network.responses
 
+import com.sectumsempra.carinfo.domain.entity.AuthResult
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
@@ -10,3 +11,5 @@ internal class AuthenticationNT(
     @Json(name = "token")
     val token: String
 )
+
+internal val AuthenticationNT.asDomainEntity get() = AuthResult(name, token)
