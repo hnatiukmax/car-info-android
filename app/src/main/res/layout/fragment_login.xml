@@ -40,13 +40,13 @@
             android:layout_marginTop="@dimen/auth_vertical_margin_medium"
             android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
-            app:hasError="@{viewModel.usernameHasError}"
+            app:hasError="@{viewModel.emailHasError}"
             app:iet_hint="@string/login_email"
             app:iet_toggleEnabled="false"
             app:iet_toggleIcon="@drawable/ic_email"
             app:iet_toggleVisible="true"
             app:iet_validationVisible="true"
-            app:text="@={viewModel.username}" />
+            app:text="@={viewModel.email}" />
 
         <com.sectumsempra.carinfo.presentation.view.InputEditTextView
             android:id="@+id/password"
