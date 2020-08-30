@@ -1,11 +1,14 @@
 package com.sectumsempra.carinfo.domain.repository
 
+import com.sectumsempra.carinfo.data.network.request.authentication.EmailLoginRequestBody
+import com.sectumsempra.carinfo.data.network.responses.asDomainEntity
+import com.sectumsempra.carinfo.data.network.safeApiCall
 import com.sectumsempra.carinfo.data.network.services.AuthenticationApiService
 import com.sectumsempra.carinfo.domain.core.AppException
 import com.sectumsempra.carinfo.domain.core.Result
 import com.sectumsempra.carinfo.domain.entity.AuthResult
+import com.sectumsempra.carinfo.domain.extensions.mapOnSuccess
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 
 internal class AuthRepository(
@@ -13,10 +16,7 @@ internal class AuthRepository(
 ) {
 
     suspend fun login(email: String, password: String): Result<AuthResult, AppException> = withContext(Dispatchers.IO) {
-        //For test
-        delay(1500L)
-        Result.Success(AuthResult("Arkadiy", "some token"))
-//        safeApiCall { authApiService.login(EmailLoginRequestBody(email, password)) }
-//            .mapOnSuccess { it.asDomainEntity }
+        safeApiCall { authApiService.login(EmailLoginRequestBody(email, password)) }
+            .mapOnSuccess { it.asDomainEntity }
     }
 }

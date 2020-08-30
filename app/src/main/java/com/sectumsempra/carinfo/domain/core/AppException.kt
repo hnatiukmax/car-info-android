@@ -8,9 +8,9 @@ internal sealed class AppException(
     cause: Throwable? = null
 ) : Exception(message, cause) {
 
-    class UnknownApiResponse(
+    class ParsingAPIResponseException(
         message: String? = null,
-        messageResource: StringResource = StringResource(R.string.exception_something_bag_happened),
+        messageResource: StringResource = StringResource(R.string.exception_parsing_response_error),
         throwable: Throwable? = null
     ) : AppException(message, messageResource, throwable)
 

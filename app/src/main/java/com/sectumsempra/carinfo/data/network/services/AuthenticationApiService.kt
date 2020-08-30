@@ -4,21 +4,20 @@ import com.sectumsempra.carinfo.data.network.request.authentication.EmailLoginRe
 import com.sectumsempra.carinfo.data.network.request.authentication.EmailRegisterRequestBody
 import com.sectumsempra.carinfo.data.network.request.authentication.SocialAuthenticationRequestBody
 import com.sectumsempra.carinfo.data.network.responses.AuthenticationNT
-import com.sectumsempra.carinfo.data.network.responses.ResultResponse
 import retrofit2.http.Body
 import retrofit2.http.POST
 
 internal interface AuthenticationApiService {
 
     @POST("$PUB/auth/register")
-    suspend fun register(@Body body: EmailRegisterRequestBody): ResultResponse<AuthenticationNT>
+    suspend fun register(@Body body: EmailRegisterRequestBody): AuthenticationNT
 
     @POST("$PUB/auth/login")
-    suspend fun login(@Body body: EmailLoginRequestBody): ResultResponse<AuthenticationNT>
+    suspend fun login(@Body body: EmailLoginRequestBody): AuthenticationNT
 
     @POST("$PUB/auth/social-register")
-    suspend fun socialRegister(@Body body: SocialAuthenticationRequestBody): ResultResponse<AuthenticationNT>
+    suspend fun socialRegister(@Body body: SocialAuthenticationRequestBody): AuthenticationNT
 
     @POST("$PUB/auth/social-login")
-    suspend fun socialLogin(@Body body: SocialAuthenticationRequestBody): ResultResponse<AuthenticationNT>
+    suspend fun socialLogin(@Body body: SocialAuthenticationRequestBody): AuthenticationNT
 }

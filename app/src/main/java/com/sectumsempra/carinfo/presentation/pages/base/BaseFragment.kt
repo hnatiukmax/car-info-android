@@ -45,7 +45,7 @@ internal abstract class BaseFragment<V : ViewDataBinding, VM : BaseViewModel> : 
                     is StringResource -> toast(messageResId)
                 }
             }
-            onShowError.observe { toast(message ?: "") }
+            onShowError.observe { toast(message ?: getString(messageResource.messageResId)) }
             onCloseKeyboard.observe { baseActivity?.hideSoftKeyboard() }
             observeViewModel()
         }

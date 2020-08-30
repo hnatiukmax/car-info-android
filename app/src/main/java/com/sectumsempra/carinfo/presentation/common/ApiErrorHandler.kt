@@ -1,6 +1,7 @@
 package com.sectumsempra.carinfo.presentation.common
 
 import com.sectumsempra.carinfo.domain.core.AppException
+import com.squareup.moshi.JsonDataException
 import org.json.JSONObject
 import retrofit2.HttpException
 import java.net.ConnectException
@@ -26,6 +27,7 @@ internal fun getError(error: Throwable) = when (error) {
             else -> AppException.HttpException(throwable = error, errorCode = error.code())
         }
     }
+    is JsonDataException -> AppException.ParsingAPIResponseException()
     else -> AppException.SomethingBadHappenException(throwable = error)
 }
 

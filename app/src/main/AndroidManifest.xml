@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.sectumsempra.carinfo">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".presentation.application.CarInfoApplication"
         android:allowBackup="true"
