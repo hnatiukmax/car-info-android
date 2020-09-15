@@ -3,9 +3,8 @@ package com.sectumsempra.carinfo.presentation.pages.search
 import android.graphics.Typeface
 import android.view.Gravity
 import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.core.view.marginBottom
-import androidx.core.view.marginTop
 import androidx.fragment.app.Fragment
 import com.sectumsempra.carinfo.R
 import com.sectumsempra.carinfo.presentation.utils.OverScrollBehavior
@@ -15,6 +14,9 @@ import org.jetbrains.anko.design.coordinatorLayout
 import org.jetbrains.anko.support.v4.nestedScrollView
 
 class SearchFragmentUI : AnkoComponent<Fragment> {
+
+    lateinit var scannerSearchCard: RelativeLayout
+    lateinit var typingSearchCard: RelativeLayout
 
     override fun createView(ui: AnkoContext<Fragment>) = with(ui) {
         coordinatorLayout {
@@ -32,7 +34,7 @@ class SearchFragmentUI : AnkoComponent<Fragment> {
                             setMargins(dip(16), dip(24), dip(16), dip(8))
                         }
 
-                        searchCard(
+                        scannerSearchCard = searchCard(
                             logoRes = R.drawable.logo_scanning,
                             iconRes = R.drawable.ic_camera,
                             backgroundIconRes = R.drawable.background_scanning_icon,
@@ -40,7 +42,7 @@ class SearchFragmentUI : AnkoComponent<Fragment> {
                             descriptionRes = R.string.search_card_scanning_description
                         )
 
-                        searchCard(
+                        typingSearchCard = searchCard(
                             logoRes = R.drawable.logo_typing,
                             iconRes = R.drawable.ic_typing,
                             backgroundIconRes = R.drawable.background_typing_icon,

@@ -4,6 +4,9 @@
     package="com.sectumsempra.carinfo">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
 
     <application
         android:name=".presentation.application.CarInfoApplication"
@@ -19,25 +22,24 @@
             android:name=".presentation.pages.welcome.WelcomeActivity"
             android:screenOrientation="${screenOrientation}"
             android:theme="@style/AppTheme.Launcher">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
 
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
         <activity
             android:name=".presentation.pages.authentication.AuthActivity"
             android:screenOrientation="${screenOrientation}" />
-
         <activity
             android:name=".presentation.pages.main.MainActivity"
-            android:screenOrientation="${screenOrientation}" >
+            android:screenOrientation="${screenOrientation}">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
