@@ -7,14 +7,14 @@
 
         <variable
             name="viewModel"
-            type="com.sectumsempra.carinfo.presentation.pages.numberscanner.NumberScannerFragmentViewModel" />
+            type="com.sectumsempra.carinfo.presentation.pages.numberscanner.NumberScannerActivityViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/default_margin_large"
-        tools:context=".presentation.pages.numberscanner.NumberScannerFragment">
+        tools:context=".presentation.pages.numberscanner.NumberScannerActivity">
 
         <SurfaceView
             android:id="@+id/cameraView"

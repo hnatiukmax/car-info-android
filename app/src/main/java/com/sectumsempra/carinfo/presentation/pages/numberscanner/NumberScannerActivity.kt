@@ -1,47 +1,56 @@
 package com.sectumsempra.carinfo.presentation.pages.numberscanner
 
 import android.Manifest
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.util.Log
 import android.util.SparseArray
 import android.view.SurfaceHolder
+import androidx.activity.result.contract.ActivityResultContract
 import androidx.core.app.ActivityCompat
 import androidx.core.util.forEach
+import androidx.core.util.isNotEmpty
 import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
 import com.google.android.gms.vision.text.TextBlock
 import com.google.android.gms.vision.text.TextRecognizer
 import com.sectumsempra.carinfo.R
-import com.sectumsempra.carinfo.databinding.FragmentNumberScannerBinding
-import com.sectumsempra.carinfo.presentation.pages.base.BaseFragment
+import com.sectumsempra.carinfo.databinding.ActivityNumberScannerBinding
+import com.sectumsempra.carinfo.presentation.pages.base.BaseActivity
 import org.jetbrains.anko.displayMetrics
 
-internal class NumberScannerFragment : BaseFragment<FragmentNumberScannerBinding, NumberScannerFragmentViewModel>() {
+internal class NumberScannerActivity :
+    BaseActivity<ActivityNumberScannerBinding, NumberScannerActivityViewModel>() {
 
-    override val layoutRes = R.layout.fragment_number_scanner
-    override val viewModelClass = NumberScannerFragmentViewModel::class
+    override val layoutRes = R.layout.activity_number_scanner
+    override val viewModelClass = NumberScannerActivityViewModel::class
+
+    companion object {
+        private const val CAR_NUMBER = "CAR_NUMBER"
+    }
 
     private lateinit var cameraSource: CameraSource
     private lateinit var textRecognizer: TextRecognizer
 
-    override fun FragmentNumberScannerBinding.initUI() {
-        lifecycleOwner = viewLifecycleOwner
-        viewModel = this@NumberScannerFragment.viewModel
+    override fun ActivityNumberScannerBinding.initUI() {
+        lifecycleOwner = this@NumberScannerActivity
+        viewModel = this@NumberScannerActivity.viewModel
 
         buildScannerTools()
         cameraView.holder.addCallback(SurfaceCameraCallback())
         textRecognizer.setProcessor(TextDetectionListener())
     }
 
-    override fun NumberScannerFragmentViewModel.observeViewModel() {
+    override fun NumberScannerActivityViewModel.observeViewModel() {
 
     }
 
     private fun buildScannerTools() {
-        textRecognizer = TextRecognizer.Builder(requireContext()).build()
+        textRecognizer = TextRecognizer.Builder(this).build()
 
-        val displayMetrics = activity?.displayMetrics ?: throw NullPointerException("Activity of ${this::class.java.simpleName} is null.")
-        cameraSource = CameraSource.Builder(requireContext(), textRecognizer)
+        cameraSource = CameraSource.Builder(this, textRecognizer)
             .setRequestedPreviewSize(displayMetrics.heightPixels, displayMetrics.widthPixels)
             .setAutoFocusEnabled(true)
             .setRequestedFps(60f)
@@ -54,12 +63,23 @@ internal class NumberScannerFragment : BaseFragment<FragmentNumberScannerBinding
         override fun receiveDetections(textBlock: Detector.Detections<TextBlock>?) {
             val text = textBlock?.detectedItems?.values()?.joinToString() ?: "empty result"
             Log.i("textRecognition", text)
+
+            if (textBlock?.detectedItems?.isNotEmpty() == true) {
+                setResult(
+                    Activity.RESULT_OK,
+                    Intent().apply { putExtra(CAR_NUMBER, textBlock.detectedItems[0].value) })
+                //finish()
+            }
         }
     }
 
     private inner class SurfaceCameraCallback : SurfaceHolder.Callback {
         override fun surfaceChanged(holder: SurfaceHolder?, format: Int, width: Int, height: Int) {
-            if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.checkSelfPermission(
+                    this@NumberScannerActivity,
+                    Manifest.permission.CAMERA
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
                 return
             }
             cameraSource.start(binding.cameraView.holder)
@@ -78,5 +98,16 @@ internal class NumberScannerFragment : BaseFragment<FragmentNumberScannerBinding
             list.add(value?.value ?: "empty")
         }
         return list.toList()
+    }
+
+    class GetNumber : ActivityResultContract<Unit, String?>() {
+
+        override fun createIntent(context: Context, input: Unit?) =
+            Intent(context, NumberScannerActivity::class.java)
+
+        override fun parseResult(resultCode: Int, intent: Intent?): String? {
+            val number = intent?.getStringExtra(CAR_NUMBER)
+            return number.takeIf { it != null && resultCode == Activity.RESULT_OK }
+        }
     }
 }

@@ -31,6 +31,11 @@
         <activity
             android:name=".presentation.pages.authentication.AuthActivity"
             android:screenOrientation="${screenOrientation}" />
+
+        <activity
+            android:name=".presentation.pages.numberscanner.NumberScannerActivity"
+            android:screenOrientation="${screenOrientation}" />
+
         <activity
             android:name=".presentation.pages.main.MainActivity"
             android:screenOrientation="${screenOrientation}">
@@ -38,6 +43,7 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
     </application>
