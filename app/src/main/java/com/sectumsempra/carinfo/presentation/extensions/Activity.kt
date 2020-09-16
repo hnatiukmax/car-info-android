@@ -1,7 +1,10 @@
 package com.sectumsempra.carinfo.presentation.extensions
 
 import android.content.Context
+import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
 import com.sectumsempra.carinfo.R
@@ -19,4 +22,12 @@ internal fun FragmentTransaction.setTransition(animationType: AnimationType) {
     }
 
     setCustomAnimations(animIn, animOut)
+}
+
+internal fun AppCompatActivity.setFullScreen() {
+    window.apply {
+        clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+    }
 }

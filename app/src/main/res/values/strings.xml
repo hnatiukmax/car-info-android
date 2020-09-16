@@ -52,4 +52,7 @@
     <string name="register_sign_up">Sign Up</string>
     <string name="register_already_have_an_account">Already have an account?</string>
 
+    <!-- Number Scanner -->
+    <string name="number_scanner_description">Keep car number in sight</string>
+
 </resources>
