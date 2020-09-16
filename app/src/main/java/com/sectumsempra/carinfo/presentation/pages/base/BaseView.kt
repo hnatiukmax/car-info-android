@@ -1,8 +1,15 @@
 package com.sectumsempra.carinfo.presentation.pages.base
 
-internal interface BaseView {
+import androidx.databinding.ViewDataBinding
 
-    val depends
-        get() = javaClass.getAnnotation(Depends::class.java)
-            ?: throw Depends.AbsentDependsAnnotation()
+internal interface BaseView<V : ViewDataBinding, VM : BaseViewModel> {
+
+    private val depends get() = javaClass.getAnnotation(Depends::class.java) ?: throw Depends.AbsentDependsAnnotation()
+
+    val layoutRes get() = depends.layout
+    val viewModelClass get() = depends.viewModelClass
+
+    fun VM.observeViewModel() { /* Default implementation */ }
+
+    fun V.initUI() { /* Default implementation */ }
 }

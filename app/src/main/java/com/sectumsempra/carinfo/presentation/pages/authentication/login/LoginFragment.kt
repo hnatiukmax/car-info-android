@@ -5,11 +5,10 @@ import com.sectumsempra.carinfo.databinding.FragmentLoginBinding
 import com.sectumsempra.carinfo.presentation.pages.authentication.AuthFragmentType
 import com.sectumsempra.carinfo.presentation.pages.authentication.OnAuthTypeChangeListener
 import com.sectumsempra.carinfo.presentation.pages.base.BaseFragment
+import com.sectumsempra.carinfo.presentation.pages.base.Depends
 
+@Depends(R.layout.fragment_login, LoginFragmentViewModel::class)
 internal class LoginFragment : BaseFragment<FragmentLoginBinding, LoginFragmentViewModel>() {
-
-    override val layoutRes = R.layout.fragment_login
-    override val viewModelClass = LoginFragmentViewModel::class
 
     companion object {
         fun newInstance() = LoginFragment()

@@ -21,7 +21,14 @@
         android:id="@+id/searchFragment"
         android:name="com.sectumsempra.carinfo.presentation.pages.search.SearchFragment"
         android:label="SearchFragment"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search">
+
+        <action
+            android:id="@+id/toNumberScannerFragment"
+            app:destination="@id/numberScannerFragment"
+            app:popUpTo="@id/searchFragment" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/exploreFragment"
@@ -32,5 +39,11 @@
         android:id="@+id/settingsFragment"
         android:name="com.sectumsempra.carinfo.presentation.pages.settings.SettingsFragment"
         android:label="ExploreFragment" />
+
+    <fragment
+        android:id="@+id/numberScannerFragment"
+        android:name="com.sectumsempra.carinfo.presentation.pages.numberscanner.NumberScannerActivity"
+        android:label="NumberScannerFragment"
+        tools:layout="@layout/activity_number_scanner" />
 
 </navigation>
