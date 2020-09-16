@@ -8,12 +8,10 @@ import com.sectumsempra.carinfo.presentation.extensions.setTransition
 import com.sectumsempra.carinfo.presentation.pages.authentication.login.LoginFragment
 import com.sectumsempra.carinfo.presentation.pages.authentication.register.RegisterFragment
 import com.sectumsempra.carinfo.presentation.pages.base.BaseActivity
+import com.sectumsempra.carinfo.presentation.pages.base.Depends
 
-internal class AuthActivity : BaseActivity<ActivityAuthBinding, AuthViewModel>(),
-    OnAuthTypeChangeListener {
-
-    override val layoutRes = R.layout.activity_auth
-    override val viewModelClass = AuthViewModel::class
+@Depends(R.layout.activity_auth, AuthViewModel::class)
+internal class AuthActivity : BaseActivity<ActivityAuthBinding, AuthViewModel>(), OnAuthTypeChangeListener {
 
     override fun ActivityAuthBinding.initUI() {
         viewModel = this@AuthActivity.viewModel

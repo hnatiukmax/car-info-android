@@ -10,15 +10,12 @@ import com.sectumsempra.carinfo.domain.core.StringResource
 import com.sectumsempra.carinfo.presentation.extensions.hideSoftKeyboard
 import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.getViewModel
-import kotlin.reflect.KClass
 
-internal abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity() {
-
-    protected abstract val layoutRes: Int
-    protected abstract val viewModelClass: KClass<VM>
+@Suppress("UNCHECKED_CAST")
+internal abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity(), BaseView<V, VM> {
 
     protected lateinit var binding: V
-    protected val viewModel by lazy { getViewModel(viewModelClass) }
+    protected val viewModel by lazy { getViewModel(viewModelClass) as VM }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,12 +39,8 @@ internal abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : 
         }
     }
 
-    protected open fun VM.observeViewModel() {}
-
-    protected open fun V.initUI() {}
-
-    protected inline fun <P> LiveData<P>.observe(crossinline observerBody: (P.() -> Unit)) {
-        this.observe(this@BaseActivity) {
+    protected inline fun <P> LiveData<P>.observe(crossinline observerBody: (P) -> Unit) {
+        observe(this@BaseActivity) {
             observerBody(it)
         }
     }

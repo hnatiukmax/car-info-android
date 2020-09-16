@@ -19,13 +19,11 @@ import com.google.android.gms.vision.text.TextRecognizer
 import com.sectumsempra.carinfo.R
 import com.sectumsempra.carinfo.databinding.ActivityNumberScannerBinding
 import com.sectumsempra.carinfo.presentation.pages.base.BaseActivity
+import com.sectumsempra.carinfo.presentation.pages.base.Depends
 import org.jetbrains.anko.displayMetrics
 
-internal class NumberScannerActivity :
-    BaseActivity<ActivityNumberScannerBinding, NumberScannerActivityViewModel>() {
-
-    override val layoutRes = R.layout.activity_number_scanner
-    override val viewModelClass = NumberScannerActivityViewModel::class
+@Depends(R.layout.activity_number_scanner, NumberScannerActivityViewModel::class)
+internal class NumberScannerActivity : BaseActivity<ActivityNumberScannerBinding, NumberScannerActivityViewModel>() {
 
     companion object {
         private const val CAR_NUMBER = "CAR_NUMBER"
@@ -41,10 +39,6 @@ internal class NumberScannerActivity :
         buildScannerTools()
         cameraView.holder.addCallback(SurfaceCameraCallback())
         textRecognizer.setProcessor(TextDetectionListener())
-    }
-
-    override fun NumberScannerActivityViewModel.observeViewModel() {
-
     }
 
     private fun buildScannerTools() {

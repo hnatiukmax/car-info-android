@@ -13,18 +13,14 @@ import com.sectumsempra.carinfo.domain.core.StringResource
 import com.sectumsempra.carinfo.presentation.extensions.hideSoftKeyboard
 import org.jetbrains.anko.support.v4.toast
 import org.koin.androidx.viewmodel.ext.android.getViewModel
-import kotlin.reflect.KClass
 
-internal abstract class BaseFragment<V : ViewDataBinding, VM : BaseViewModel> : Fragment() {
+@Suppress("UNCHECKED_CAST")
+internal abstract class BaseFragment<V : ViewDataBinding, VM : BaseViewModel> : Fragment(), BaseView<V, VM> {
 
-    private val baseActivity get() = (activity as? BaseActivity<*, *>)
-
-    protected abstract val layoutRes: Int
-    protected abstract val viewModelClass: KClass<VM>
+    private val baseActivity get() = (activity as? BaseActivity<ViewDataBinding, BaseViewModel>)
 
     protected lateinit var binding: V
-
-    protected val viewModel by lazy { getViewModel(viewModelClass) }
+    protected val viewModel by lazy { getViewModel(viewModelClass) as VM }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,26 +36,18 @@ internal abstract class BaseFragment<V : ViewDataBinding, VM : BaseViewModel> : 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         viewModel.apply {
             onShowMessage.observe {
-                when (this) {
-                    is String -> toast(this)
-                    is StringResource -> toast(messageResId)
+                when (it) {
+                    is String -> toast(it)
+                    is StringResource -> toast(it.messageResId)
                 }
             }
-            onShowError.observe { toast(message ?: getString(messageResource.messageResId)) }
+            onShowError.observe { toast(it.message ?: getString(it.messageResource.messageResId)) }
             onCloseKeyboard.observe { baseActivity?.hideSoftKeyboard() }
             observeViewModel()
         }
     }
 
-    protected open fun VM.observeViewModel() {
-        /* Default implementation */
-    }
-
-    protected open fun V.initUI() {
-        /* Default implementation */
-    }
-
-    protected inline fun <P> LiveData<P>.observe(crossinline observerBody: (P.() -> Unit)) {
+    protected inline fun <P> LiveData<P>.observe(crossinline observerBody: (P) -> Unit) {
         observe(viewLifecycleOwner) {
             observerBody(it)
         }
