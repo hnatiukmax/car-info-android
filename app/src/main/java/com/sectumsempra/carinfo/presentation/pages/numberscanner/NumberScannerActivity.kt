@@ -18,6 +18,8 @@ import com.google.android.gms.vision.text.TextBlock
 import com.google.android.gms.vision.text.TextRecognizer
 import com.sectumsempra.carinfo.R
 import com.sectumsempra.carinfo.databinding.ActivityNumberScannerBinding
+import com.sectumsempra.carinfo.presentation.extensions.enableBackButton
+import com.sectumsempra.carinfo.presentation.extensions.makeToolbarAsActionBar
 import com.sectumsempra.carinfo.presentation.extensions.setFullScreen
 import com.sectumsempra.carinfo.presentation.pages.base.BaseActivity
 import com.sectumsempra.carinfo.presentation.pages.base.Depends
@@ -36,6 +38,8 @@ internal class NumberScannerActivity : BaseActivity<ActivityNumberScannerBinding
     override fun ActivityNumberScannerBinding.initUI() {
         viewModel = this@NumberScannerActivity.viewModel
         setFullScreen()
+        makeToolbarAsActionBar(toolbar)
+        enableBackButton(R.drawable.ic_back_white)
 
         buildScannerTools()
         cameraView.holder.addCallback(SurfaceCameraCallback())

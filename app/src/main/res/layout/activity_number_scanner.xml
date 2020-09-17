@@ -26,15 +26,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/back"
+            android:id="@+id/toolbar"
+            style="@style/AppTheme.Toolbar.Light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
             android:onClick="@{v -> viewModel.onClosePageClick()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:navigationIcon="@drawable/ic_black"
-            app:tint="@android:color/white" />
+            app:title="@string/number_scanner_title" />
 
         <View
             android:layout_width="match_parent"
