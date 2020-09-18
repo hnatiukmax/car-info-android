@@ -52,25 +52,21 @@
         <item name="navigationIcon">@drawable/ic_back_black</item>
         <item name="android:titleTextColor">@color/text_black</item>
         <item name="titleTextStyle">@style/AppTheme.Toolbar.TitleTextStyle</item>
+        <item name="titleTextAppearance">@style/AppTheme.Toolbar.TitleTextStyle.Light</item>
     </style>
 
-    <!-- Widget -->
     <style name="AppTheme.Toolbar.Light">
-        <item name="android:fitsSystemWindows">true</item>
-        <item name="android:background">@android:color/transparent</item>
-        <item name="contentInsetStartWithNavigation">16dp</item>
         <item name="navigationIcon">@drawable/ic_back_white</item>
-        <item name="titleTextStyle">@style/AppTheme.Toolbar.TitleTextStyle</item>
+        <item name="titleTextAppearance">@style/AppTheme.Toolbar.TitleTextStyle.Light</item>
     </style>
 
-    <style name="AppTheme.Toolbar.TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textSize">12sp</item>
-        <item name="titleTextColor">@color/text_black</item>
+    <style name="AppTheme.Toolbar.TitleTextStyle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_size_toolbar</item>
+        <item name="android:textColor">@color/text_black</item>
     </style>
 
-    <style name="AppTheme.Toolbar.TitleTextStyle.Light" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="titleTextColor">@android:color/white</item>
+    <style name="AppTheme.Toolbar.TitleTextStyle.Light">
         <item name="android:textColor">@android:color/white</item>
     </style>
 
