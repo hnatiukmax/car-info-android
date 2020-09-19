@@ -1,8 +1,12 @@
 @file:Suppress("NOTHING_TO_INLINE", "unused")
 package com.sectumsempra.carinfo.presentation.extensions
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.View
 import androidx.annotation.DimenRes
+import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
 import org.jetbrains.anko.dip
 import java.util.*
 
@@ -22,3 +26,6 @@ internal fun View.generateId() {
 }
 
 internal inline fun View.dip(@DimenRes dimenRes: Int): Int = context.dip(resources.getDimension(dimenRes))
+
+fun View.getDrawable(@DrawableRes id: Int, default: ColorDrawable = ColorDrawable(Color.TRANSPARENT)) =
+    ContextCompat.getDrawable(context, id) ?: default

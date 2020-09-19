@@ -14,9 +14,4 @@ internal open class BaseViewModel : ViewModel() {
     val onShowError = MutableLiveData<AppException>()
     val onShowMessage = MutableLiveData<Any>()
     val onCloseKeyboard = ActionLiveData<Unit>()
-    val onClosePage = ActionLiveData<Unit>()
-
-    fun onClosePageClick() {
-        onClosePage.call()
-    }
 }

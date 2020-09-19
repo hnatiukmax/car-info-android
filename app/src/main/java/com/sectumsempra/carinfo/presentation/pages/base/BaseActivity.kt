@@ -36,7 +36,6 @@ internal abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : 
             }
             onShowError.observe(this@BaseActivity) { toast(it.message ?: "") }
             onCloseKeyboard.observe(this@BaseActivity) { hideSoftKeyboard() }
-            onClosePage.observe { onBackPressed() }
             observeViewModel()
         }
     }

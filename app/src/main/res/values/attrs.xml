@@ -13,4 +13,12 @@
         <attr name="android:inputType" />
     </declare-styleable>
 
+    <declare-styleable name="SearchCardView">
+        <attr name="sc_logo" format="reference" />
+        <attr name="sc_icon" format="reference" />
+        <attr name="sc_icon_background" format="reference" />
+        <attr name="sc_title" format="string" />
+        <attr name="sc_description" format="string" />
+    </declare-styleable>
+
 </resources>
