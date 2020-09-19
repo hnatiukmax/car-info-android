@@ -4,6 +4,8 @@
     <dimen name="design_bottom_navigation_active_text_size" tools:override="true">12sp</dimen>
 
     <!-- Text -->
+    <dimen name="text_size_toolbar">18sp</dimen>
+
     <dimen name="text_size_small">12sp</dimen>
     <dimen name="text_size_medium">15sp</dimen>
     <dimen name="text_size_large">20sp</dimen>

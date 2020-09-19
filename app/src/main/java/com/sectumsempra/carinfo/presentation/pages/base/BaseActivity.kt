@@ -1,6 +1,7 @@
 package com.sectumsempra.carinfo.presentation.pages.base
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -8,6 +9,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.observe
 import com.sectumsempra.carinfo.domain.core.StringResource
 import com.sectumsempra.carinfo.presentation.extensions.hideSoftKeyboard
+import com.sectumsempra.carinfo.presentation.extensions.onBackPressedHandler
 import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
