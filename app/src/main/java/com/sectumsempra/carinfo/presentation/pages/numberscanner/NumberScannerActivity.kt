@@ -34,10 +34,11 @@ internal class NumberScannerActivity : BaseToolbarActivity<ActivityNumberScanner
     private lateinit var cameraSource: CameraSource
     private lateinit var textRecognizer: TextRecognizer
 
+    override val backButtonIconRes = R.drawable.ic_back_white
+
     override fun ActivityNumberScannerBinding.initUI() {
         viewModel = this@NumberScannerActivity.viewModel
         setFullScreen()
-        enableBackButton(R.drawable.ic_back_white)
 
         buildScannerTools()
         cameraView.holder.addCallback(SurfaceCameraCallback())
