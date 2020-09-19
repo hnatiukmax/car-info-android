@@ -19,14 +19,13 @@ import com.google.android.gms.vision.text.TextRecognizer
 import com.sectumsempra.carinfo.R
 import com.sectumsempra.carinfo.databinding.ActivityNumberScannerBinding
 import com.sectumsempra.carinfo.presentation.extensions.enableBackButton
-import com.sectumsempra.carinfo.presentation.extensions.makeToolbarAsActionBar
 import com.sectumsempra.carinfo.presentation.extensions.setFullScreen
-import com.sectumsempra.carinfo.presentation.pages.base.BaseActivity
+import com.sectumsempra.carinfo.presentation.pages.base.BaseToolbarActivity
 import com.sectumsempra.carinfo.presentation.pages.base.Depends
 import org.jetbrains.anko.displayMetrics
 
 @Depends(R.layout.activity_number_scanner, NumberScannerActivityViewModel::class)
-internal class NumberScannerActivity : BaseActivity<ActivityNumberScannerBinding, NumberScannerActivityViewModel>() {
+internal class NumberScannerActivity : BaseToolbarActivity<ActivityNumberScannerBinding, NumberScannerActivityViewModel>() {
 
     companion object {
         private const val CAR_NUMBER = "CAR_NUMBER"
@@ -38,7 +37,6 @@ internal class NumberScannerActivity : BaseActivity<ActivityNumberScannerBinding
     override fun ActivityNumberScannerBinding.initUI() {
         viewModel = this@NumberScannerActivity.viewModel
         setFullScreen()
-        makeToolbarAsActionBar(toolbar)
         enableBackButton(R.drawable.ic_back_white)
 
         buildScannerTools()

@@ -1,6 +1,7 @@
 package com.sectumsempra.carinfo.presentation.extensions
 
 import android.content.Context
+import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
@@ -52,4 +53,12 @@ internal fun AppCompatActivity.enableBackButton(@DrawableRes icon: Int = R.drawa
     it.setDisplayHomeAsUpEnabled(true)
     it.setDisplayShowHomeEnabled(true)
     it.setHomeAsUpIndicator(icon)
+}
+
+internal fun FragmentActivity.onBackPressedHandler(item: MenuItem): Boolean {
+    if (item.itemId == android.R.id.home) {
+        onBackPressed()
+        return true
+    }
+    return false
 }
