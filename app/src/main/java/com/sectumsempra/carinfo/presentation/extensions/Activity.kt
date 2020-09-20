@@ -1,6 +1,7 @@
 package com.sectumsempra.carinfo.presentation.extensions
 
 import android.content.Context
+import android.os.Parcelable
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
@@ -13,6 +14,8 @@ import androidx.fragment.app.FragmentTransaction
 import com.sectumsempra.carinfo.R
 import com.sectumsempra.carinfo.domain.core.StringResource
 import com.sectumsempra.carinfo.presentation.enum.AnimationType
+import java.io.Serializable
+import java.lang.IllegalArgumentException
 
 internal fun FragmentActivity.hideSoftKeyboard() {
     (getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager)
@@ -61,4 +64,55 @@ internal fun FragmentActivity.onBackPressedHandler(item: MenuItem): Boolean {
         return true
     }
     return false
+}
+
+internal fun FragmentActivity.intExtraOrException(extraTag: String) : Int {
+    return if (intent.hasExtra(extraTag)) {
+        intent.getIntExtra(extraTag, 0)
+    } else {
+        throw IllegalArgumentException("Some int extra arg is missed.")
+    }
+}
+
+internal fun FragmentActivity.intExtraOrNull(extraTag: String) : Int? {
+    return intent.intExtraOrNull(extraTag)
+}
+
+internal fun FragmentActivity.stringExtraOrException(extraTag: String) : String {
+    return takeIf { intent.hasExtra(extraTag) }?.let {
+        intent.getStringExtra(extraTag)
+    } ?: throw IllegalArgumentException("Some string extra arg is missed.")
+}
+
+internal fun FragmentActivity.stringExtraOrNull(extraTag: String) : String? {
+    return intent.getStringExtra(extraTag)
+}
+
+internal fun FragmentActivity.booleanExtraOrException(extraTag: String) : Boolean {
+    return if (intent.hasExtra(extraTag)) {
+        intent.getBooleanExtra(extraTag, false)
+    } else {
+        throw IllegalArgumentException("Some boolean extra arg is missed.")
+    }
+}
+
+internal fun FragmentActivity.booleanExtraOrNull(extraTag: String) : Boolean? {
+    return if (intent.hasExtra(extraTag)) intent.getBooleanExtra(extraTag, false) else null
+}
+
+internal fun <T : Parcelable> FragmentActivity.parcelableExtraOrException(extraTag: String): T {
+    return takeIf { intent.hasExtra(extraTag) }?.let {
+        intent.getParcelableExtra<T>(extraTag)
+    } ?: throw IllegalArgumentException("Some parcelable extra arg is missed.")
+}
+
+internal fun <T : Parcelable> FragmentActivity.parcelableExtraOrNull(extraTag: String): T? {
+    return  if (intent.hasExtra(extraTag)) intent.getParcelableExtra<T>(extraTag) else null
+}
+
+@Suppress("UNCHECKED_CAST")
+internal fun <T : Serializable> FragmentActivity.serializableExtraOrException(extraTag: String): T {
+    return takeIf { intent.hasExtra(extraTag) }?.let {
+        intent.getSerializableExtra(extraTag) as T
+    } ?: throw IllegalArgumentException("Some parcelable extra arg is missed.")
 }
