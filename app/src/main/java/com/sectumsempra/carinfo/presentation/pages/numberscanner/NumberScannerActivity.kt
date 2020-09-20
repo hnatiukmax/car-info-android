@@ -5,20 +5,18 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.util.Log
 import android.util.SparseArray
 import android.view.SurfaceHolder
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.core.app.ActivityCompat
 import androidx.core.util.forEach
-import androidx.core.util.isNotEmpty
 import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
 import com.google.android.gms.vision.text.TextBlock
 import com.google.android.gms.vision.text.TextRecognizer
 import com.sectumsempra.carinfo.R
 import com.sectumsempra.carinfo.databinding.ActivityNumberScannerBinding
-import com.sectumsempra.carinfo.presentation.extensions.enableBackButton
+import com.sectumsempra.carinfo.domain.entity.isCorrectAsNumber
 import com.sectumsempra.carinfo.presentation.extensions.setFullScreen
 import com.sectumsempra.carinfo.presentation.pages.base.BaseToolbarActivity
 import com.sectumsempra.carinfo.presentation.pages.base.Depends
@@ -58,17 +56,24 @@ internal class NumberScannerActivity : BaseToolbarActivity<ActivityNumberScanner
     private inner class TextDetectionListener : Detector.Processor<TextBlock> {
         override fun release() {}
 
-        override fun receiveDetections(textBlock: Detector.Detections<TextBlock>?) {
-            val text = textBlock?.detectedItems?.values()?.joinToString() ?: "empty result"
-            Log.i("textRecognition", text)
+        override fun receiveDetections(detection: Detector.Detections<TextBlock>?) {
+            //val text = detection?.detectedItems?.values()?.joinToString() ?: "empty result"
+            //Log.i("textRecognition", text)
 
-            if (textBlock?.detectedItems?.isNotEmpty() == true) {
-                setResult(
-                    Activity.RESULT_OK,
-                    Intent().apply { putExtra(CAR_NUMBER, textBlock.detectedItems[0].value) })
-                //finish()
+            detection?.detectedItems?.forEach { _, textBlock ->
+                //Log.i("textRecognition", "${textBlock.value} - ${textBlock.value.isCorrectAsNumber()}")
+                if (textBlock.value.isCorrectAsNumber()) {
+                    finishWithResult(textBlock.value.replace("\\s".toRegex(), ""))
+                    textRecognizer.setProcessor(null)
+                }
             }
         }
+    }
+
+    private fun finishWithResult(result: String) {
+        val intent = Intent().apply { putExtra(CAR_NUMBER, result) }
+        setResult(Activity.RESULT_OK, intent)
+        finish()
     }
 
     private inner class SurfaceCameraCallback : SurfaceHolder.Callback {

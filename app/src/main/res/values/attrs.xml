@@ -21,4 +21,10 @@
         <attr name="sc_description" format="string" />
     </declare-styleable>
 
+    <declare-styleable name="CarInfoParamView">
+        <attr name="cip_param" format="string" />
+        <attr name="cip_value" format="string" />
+        <attr name="cip_param_icon" format="reference" />
+    </declare-styleable>
+
 </resources>

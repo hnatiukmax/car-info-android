@@ -36,6 +36,9 @@
             android:name=".presentation.pages.numberscanner.NumberScannerActivity"
             android:screenOrientation="${screenOrientation}" />
 
+        <activity android:name=".presentation.pages.carinfo.CarInfoActivity"
+            android:screenOrientation="${screenOrientation}" />
+
         <activity
             android:name=".presentation.pages.main.MainActivity"
             android:screenOrientation="${screenOrientation}">

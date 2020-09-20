@@ -17,7 +17,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 internal abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity(), BaseView<V, VM> {
 
     protected lateinit var binding: V
-    protected val viewModel by lazy { getViewModel(viewModelClass) as VM }
+    protected open val viewModel by lazy { getViewModel(viewModelClass) as VM }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -4,6 +4,7 @@ import com.sectumsempra.carinfo.presentation.pages.authentication.AuthViewModel
 import com.sectumsempra.carinfo.presentation.pages.authentication.login.LoginFragmentViewModel
 import com.sectumsempra.carinfo.presentation.pages.authentication.register.RegisterFragmentViewModel
 import com.sectumsempra.carinfo.presentation.pages.bookmarks.BookMarksFragmentViewModel
+import com.sectumsempra.carinfo.presentation.pages.carinfo.CarInfoActivityViewModel
 import com.sectumsempra.carinfo.presentation.pages.history.HistoryFragmentViewModel
 import com.sectumsempra.carinfo.presentation.pages.numberscanner.NumberScannerActivityViewModel
 import com.sectumsempra.carinfo.presentation.pages.search.SearchFragmentViewModel
@@ -20,4 +21,5 @@ internal val viewModelModule = module {
     viewModel { BookMarksFragmentViewModel() }
     viewModel { NumberScannerActivityViewModel() }
     viewModel { SearchFragmentViewModel() }
+    viewModel { (number: String) -> CarInfoActivityViewModel(number, get()) }
 }
