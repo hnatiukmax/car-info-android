@@ -75,9 +75,6 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     def appDependencies = rootProject.ext.appDependencies
 
     /* Core */
@@ -93,6 +90,7 @@ dependencies {
     /* UI */
     implementation appDependencies.coreKtx
     implementation appDependencies.fragmentKtx
+    implementation appDependencies.activityKtx
     implementation appDependencies.navigationKtx
     implementation appDependencies.navigationFragmentKtx
 
@@ -104,6 +102,7 @@ dependencies {
     implementation appDependencies.constraintLayout
     implementation appDependencies.viewPager
     implementation appDependencies.materialDesign
+    implementation appDependencies.googleVision
 
     implementation appDependencies.expandedLayout
     implementation appDependencies.lottie
@@ -123,9 +122,4 @@ dependencies {
     implementation appDependencies.retrofitMoshiConverter
     kapt appDependencies.moshiKotlinCodegen
     implementation appDependencies.moshiAdapters
-
-    implementation 'com.google.android.gms:play-services-vision:20.1.2'
-
-    implementation "androidx.activity:activity-ktx:1.2.0-alpha08"
-    implementation "androidx.fragment:fragment-ktx:1.3.0-alpha08"
 }
