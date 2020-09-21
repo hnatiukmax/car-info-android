@@ -104,10 +104,11 @@ dependencies {
     implementation appDependencies.materialDesign
     implementation appDependencies.googleVision
 
-    implementation appDependencies.expandedLayout
+    implementation appDependencies.coil
     implementation appDependencies.lottie
     implementation appDependencies.circularImageView
 
+    implementation appDependencies.expandedLayout
     implementation appDependencies.materialProgress
     implementation appDependencies.adapterDelegate
     implementation appDependencies.adapterDelegateExtensions

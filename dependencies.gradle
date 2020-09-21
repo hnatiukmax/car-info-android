@@ -36,9 +36,11 @@ ext {
     materialDesign = 'com.google.android.material:material'
     googleVision = 'com.google.android.gms:play-services-vision'
 
-    expandedLayout = 'net.cachapa.expandablelayout:expandablelayout'
+    coil = 'io.coil-kt:coil'
     lottie = 'com.airbnb.android:lottie'
     circularImageView = 'com.mikhaellopez:circularimageview'
+
+    expandedLayout = 'net.cachapa.expandablelayout:expandablelayout'
     materialProgress = 'me.zhanghai.android.materialprogressbar:library'
     adapterDelegate = 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl'
     adapterDelegateExtensions = 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl-layoutcontainer'
@@ -80,9 +82,11 @@ ext {
     materialDesignVersion = '1.0.0'
     googleVisionVersion = '20.1.2'
 
-    expandedLayoutVersion = '2.9.2'
+    coilVersion = '0.11.0'
     lottieVersion = '3.4.0'
     circularImageViewVersion = '4.2.0'
+
+    expandedLayoutVersion = '2.9.2'
     materialProgressVersion = '1.6.1'
     adapterDelegateVersion = '4.3.0'
 
@@ -121,9 +125,11 @@ ext {
             materialDesign           : "${materialDesign}:${materialDesignVersion}",
             googleVision             : "${googleVision}:${googleVisionVersion}",
 
-            expandedLayout           : "${expandedLayout}:${expandedLayoutVersion}",
+            coil                     : "${coil}:${coilVersion}",
             lottie                   : "${lottie}:${lottieVersion}",
             circularImageView        : "${circularImageView}:${circularImageViewVersion}",
+
+            expandedLayout           : "${expandedLayout}:${expandedLayoutVersion}",
             materialProgress         : "${materialProgress}:${materialProgressVersion}",
             adapterDelegate          : "${adapterDelegate}:${adapterDelegateVersion}",
             adapterDelegateExtensions: "${adapterDelegateExtensions}:${adapterDelegateVersion}",
